@@ -1,0 +1,107 @@
+.spin-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: normal;
+  text-align: center;
+  background: #ffd700;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 20px 20px;
+  background-position: 0 0;
+}
+
+.luckywheel ul,
+.luckywheel li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.luckywheel {
+  position: relative;
+  border-radius: 50%;
+}
+
+.luckywheel-container {
+  z-index: 1;
+  border-radius: inherit;
+  background-clip: padding-box;
+  -webkit-transition: transform 6s ease;
+  transition: transform 6s ease;
+}
+
+.luckywheel-container canvas {
+  border-radius: 50%;
+}
+
+.luckywheel-list {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: inherit;
+  height: inherit;
+  z-index: 50;
+}
+
+.luckywheel-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.text-container {
+  width: 40px;
+  margin: 0 auto;
+}
+
+.luckywheel-item__content > p {
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.luckywheel-item span {
+  position: relative;
+  display: block;
+  padding-top: 30px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.luckywheel-item img {
+  position: relative;
+}
+
+.luckywheel-logo {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.luckywheel-btn {
+  position: absolute;
+  left: -2%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(0%, -50%);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+    transition-timing-function: ease-in-out;
+  }
+  to {
+    transform: rotate(-30deg);
+    transition-timing-function: ease-in-out;
+  }
+}

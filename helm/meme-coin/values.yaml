@@ -1,0 +1,46 @@
+replicaCount: 2
+
+image:
+  repository: us-central1-docker.pkg.dev/tmgalaxy/astra-testnet/meme-coin
+  pullPolicy: IfNotPresent
+  tag: meme-coin-02016b9
+
+serviceAccount:
+  create: true
+  automount: false
+  name: "meme-coin-sa"
+
+service:
+  type: LoadBalancer
+  port: 3000
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  hosts:
+    - host: getluckydog.ai
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: 
+   - secretName: meme-coin-tls
+     hosts:
+       - getluckydog.ai
+
+resources: 
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80

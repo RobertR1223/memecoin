@@ -1,0 +1,15 @@
+.bubble {
+  display: inline-block;
+  position: relative;
+}
+
+.bubble:before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent yellow transparent transparent;
+}

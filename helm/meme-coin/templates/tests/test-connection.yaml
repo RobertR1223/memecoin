@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "meme-coin.fullname" . }}-test-connection"
+  labels:
+    {{- include "meme-coin.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "meme-coin.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
